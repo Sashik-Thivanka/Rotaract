@@ -1,0 +1,23 @@
+
+export interface Article {
+  id: string;
+  title: string;
+  category: string;
+  tags: string[];
+  readingTime: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  year: string;
+  image: string;
+  popular: number;
+  content: string[];
+}
+
+export const ARTICLES: Article[] = [
+{ id: 'leadership-journey', title: 'How volunteering shaped my leadership journey', category: 'Leadership', tags: ['Leadership', 'Members'], readingTime: '5 min read', excerpt: 'From shy first-year to project lead: the small moments that changed everything.', author: 'Amara Fernando', date: 'May 18, 2026', year: '2026', image: "/7bd60e2b-0f1c-4507-9b7b-43763cc9d0f6.jpg", popular: 324, content: ['I joined Rotaract hoping to learn how to speak up. I did not expect to find a room full of people who would make space for my first hesitant ideas.', 'Leadership did not arrive as a title. It appeared in the quiet follow-up, the difficult conversation and the moment a team needed someone to believe the plan could work.'] },
+{ id: 'youth-community', title: '5 ways youth are reshaping community service', category: 'Community', tags: ['Community', 'Impact'], readingTime: '4 min read', excerpt: 'A generation is rewriting what meaningful service looks like, one partnership at a time.', author: 'Dinuka Perera', date: 'Apr 29, 2026', year: '2026', image: "/d9bd489e-919e-405e-9ba0-68bc147e9344.jpg", popular: 292, content: ['The most exciting shift in youth service is not simply scale. It is proximity: young people are listening more carefully, co-designing with communities and staying to learn what changes after an event.', 'When care is paired with curiosity, a project becomes more than a day of activity. It becomes a relationship with a future.'] },
+{ id: 'life-drops', title: 'Inside Life Drops: our biggest blood drive yet', category: 'Projects', tags: ['Projects', 'Health'], readingTime: '6 min read', excerpt: 'Behind the scenes of a campus campaign that brought hundreds together for one urgent cause.', author: 'Sanduni Silva', date: 'Mar 12, 2026', year: '2026', image: "/9ea0281f-b406-40be-843a-2f5feee2eadb.jpg", popular: 406, content: ['By 7am, the first volunteers were already setting out signs, checking donor forms and finding coffee for anyone who needed it.', 'Life Drops reminded us that a generous culture is built in the practical moments: a reassuring smile, a clear queue and a hundred small acts of attention.'] },
+{ id: 'fellowship-design', title: 'Why fellowship is a design problem worth solving', category: 'Culture', tags: ['Culture', 'Club Service'], readingTime: '7 min read', excerpt: 'The club experiences that make new members feel seen are never accidental.', author: 'Yasara Fernando', date: 'Feb 21, 2026', year: '2026', image: "/1e74bf3b-bd1e-4979-a2ae-f0d17883d4b4.jpg", popular: 237, content: ['Belonging is often mistaken for chemistry. In reality, it can be designed through invitations, rituals and moments of real attention.', 'The strongest clubs make space for people to arrive as they are and grow at their own pace.'] },
+{ id: 'future-ready', title: 'What we learned from listening to future leaders', category: 'Leadership', tags: ['Leadership', 'Learning'], readingTime: '5 min read', excerpt: 'Five honest conversations that challenged our assumptions about confidence and careers.', author: 'Tharushi Wickramasinghe', date: 'Nov 28, 2025', year: '2025', image: "/3192413d-6ab1-4400-8553-9adae65bcc27.jpg", popular: 188, content: ['The next generation does not need a script. It needs rooms where questions are welcome, mentors are accessible and trying something new is celebrated.', 'Our role is not to hand people a map. It is to help them trust their own compass.'] },
+{ id: 'beyond-borders', title: 'A local club with a global point of view', category: 'International', tags: ['International', 'Partnerships'], readingTime: '4 min read', excerpt: 'How a few cross-border conversations became a powerful exchange of ideas and care.', author: 'Savin Fernando', date: 'Oct 15, 2025', year: '2025', image: "/67a57244-695d-4354-86ae-42f897a404b4.jpg", popular: 154, content: ['International service begins by noticing that connection is already possible. A message, a shared challenge and a willingness to learn can travel further than we imagine.', 'The best collaborations leave everyone with more questions, more friends and a broader sense of responsibility.'] }];
