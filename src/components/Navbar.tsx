@@ -25,7 +25,7 @@ export function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 1.2 }}
-        className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
+        className="fixed inset-x-0 top-0 z-[100] flex justify-center px-4 pt-4">
         
         <nav
           aria-label="Main navigation"
@@ -49,7 +49,7 @@ export function Navbar() {
               const isBlog = link.href === '/blog';
               return (
                 <li key={link.label}>
-                  <Link to={link.href} className={`block rounded-full px-3.5 py-2 text-base font-medium transition-colors ${isBlog ? 'bg-crimson-500 text-white shadow-soft hover:bg-crimson-600 dark:bg-gold dark:text-ink dark:hover:bg-gold-light' : active ? 'bg-crimson-500/10 text-crimson-500 dark:bg-gold/15 dark:text-gold' : 'text-ink/75 hover:text-crimson-500 dark:text-white/75 dark:hover:text-gold'}`}>
+                  <Link to={link.href} className={`block rounded-full px-3.5 py-2 text-base font-medium transition-colors ${isBlog ? 'bg-navy-500 text-white shadow-soft hover:bg-navy-600 dark:bg-gold dark:text-ink dark:hover:bg-gold-light' : active ? 'bg-navy-500/10 text-navy-500 dark:bg-gold/15 dark:text-gold' : 'text-ink/75 hover:text-navy-500 dark:text-white/75 dark:hover:text-gold'}`}>
                     {link.label}
                   </Link>
                 </li>);
@@ -61,7 +61,7 @@ export function Navbar() {
             <button
               onClick={() => setSearchOpen(true)}
               aria-label="Search"
-              className="flex h-9 w-9 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-crimson-500/10 hover:text-crimson-500 dark:text-white/70 dark:hover:text-gold">
+              className="flex h-9 w-9 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-navy-500/10 hover:text-navy-500 dark:text-white/70 dark:hover:text-gold">
               
               <Search className="h-[18px] w-[18px]" />
             </button>
@@ -69,7 +69,7 @@ export function Navbar() {
               type="button"
               onClick={toggleTheme}
               aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-              className="flex h-9 w-9 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-crimson-500/10 hover:text-crimson-500 dark:text-white/70 dark:hover:text-gold">
+              className="flex h-9 w-9 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-navy-500/10 hover:text-navy-500 dark:text-white/70 dark:hover:text-gold">
               
               {theme === 'light' ? <Moon className="h-[18px] w-[18px]" /> : <Sun className="h-[18px] w-[18px]" />}
             </button>
@@ -105,7 +105,7 @@ export function Navbar() {
                 <button
                 onClick={() => setMobileOpen(false)}
                 aria-label="Close menu"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-crimson-500/10 text-crimson-500">
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-navy-500/10 text-navy-500">
                 
                   <X className="h-5 w-5" />
                 </button>
@@ -117,7 +117,7 @@ export function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.05 * index }}>
               
-                  <Link to={link.href} onClick={() => setMobileOpen(false)} className={`block rounded-2xl px-4 py-3 text-lg font-medium transition ${link.href === '/blog' ? 'bg-crimson-500 text-white shadow-soft dark:bg-gold dark:text-ink' : 'text-ink/80 hover:bg-crimson-500/10 hover:text-crimson-500 dark:text-white/80 dark:hover:text-gold'}`}>
+                  <Link to={link.href} onClick={() => setMobileOpen(false)} className={`block rounded-2xl px-4 py-3 text-lg font-medium transition ${link.href === '/blog' ? 'bg-navy-500 text-white shadow-soft dark:bg-gold dark:text-ink' : 'text-ink/80 hover:bg-navy-500/10 hover:text-navy-500 dark:text-white/80 dark:hover:text-gold'}`}>
                     {link.label}
                   </Link>
                 </motion.div>
@@ -144,7 +144,7 @@ export function Navbar() {
             className="w-full max-w-xl rounded-3xl bg-white p-2 shadow-soft dark:bg-ink">
             
               <div className="flex items-center gap-3 px-4">
-                <Search className="h-5 w-5 text-crimson-500" />
+                <Search className="h-5 w-5 text-navy-500" />
                 <input
                 autoFocus
                 type="text"
@@ -154,7 +154,7 @@ export function Navbar() {
                 <button
                 onClick={() => setSearchOpen(false)}
                 aria-label="Close search"
-                className="text-ink/40 transition-colors hover:text-crimson-500 dark:text-white/40">
+                className="text-ink/40 transition-colors hover:text-navy-500 dark:text-white/40">
                 
                   <X className="h-5 w-5" />
                 </button>

@@ -30,7 +30,7 @@ export const AVENUE_DETAILS: AvenueDetail[] = [
   tagline: 'The culture engine behind a connected club.',
   icon: UsersIcon,
   image: "/1e74bf3b-bd1e-4979-a2ae-f0d17883d4b4.jpg",
-  accent: 'crimson',
+  accent: 'navy',
   completedProjects: 18,
   directors: 3
 },

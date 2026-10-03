@@ -49,7 +49,7 @@ export function Footer() {
           {/* About */}
           <div>
             <div className="mb-4 flex items-center gap-2.5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-crimson-500 font-display text-lg font-extrabold text-white">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy-500 font-display text-lg font-extrabold text-white">
                 R
               </span>
               <span className="font-display text-base font-bold text-white">
@@ -66,7 +66,7 @@ export function Footer() {
                 key={i}
                 href="#contact"
                 aria-label="Social media"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-colors hover:bg-crimson-500 hover:text-white">
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-colors hover:bg-navy-500 hover:text-white">
                 
                   <Icon className="h-4 w-4" />
                 </a>
@@ -143,7 +143,7 @@ export function Footer() {
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-crimson-500 text-white shadow-soft transition-transform hover:-translate-y-1">
+          className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-navy-500 text-white shadow-soft transition-transform hover:-translate-y-1">
           
             <ArrowUp className="h-5 w-5" />
           </motion.button>

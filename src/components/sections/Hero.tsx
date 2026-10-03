@@ -52,7 +52,7 @@ export function Hero() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-[1] bg-gradient-to-r from-crimson-800/80 via-crimson-700/55 to-crimson-500/15 dark:from-crimson-800/95 dark:via-crimson-700/70 dark:to-crimson-500/20" />
+        className="absolute inset-0 z-[1] bg-gradient-to-r from-navy-800/80 via-navy-700/55 to-navy-500/15 dark:from-navy-800/95 dark:via-navy-700/70 dark:to-navy-500/20" />
       
 
       <div className="absolute bottom-[19%] right-[6%] z-10 hidden lg:block">
@@ -87,7 +87,7 @@ export function Hero() {
           <button
             type="button"
             disabled
-            className="inline-flex min-w-56 items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-base font-semibold text-crimson-700">
+            className="inline-flex min-w-56 items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-base font-semibold text-navy-700">
             
             Explore Projects
             <ArrowRight className="h-5 w-5" aria-hidden="true" />

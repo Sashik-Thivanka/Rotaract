@@ -2,7 +2,6 @@ import React from 'react';
 import { Avenues } from '../components/sections/Avenues';
 import { Blog } from '../components/sections/Blog';
 import { Events } from '../components/sections/Events';
-import { Gallery } from '../components/sections/Gallery';
 import { Hero } from '../components/sections/Hero';
 import { Impact } from '../components/sections/Impact';
 import { Projects } from '../components/sections/Projects';
@@ -21,7 +20,6 @@ export function HomePage() {
         <Events />
         <Avenues />
         <Sponsors />
-        <Gallery />
         <Blog />
         <Testimonials />
       </main>

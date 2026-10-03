@@ -25,7 +25,7 @@ export function Board() {
     <section id="board" className="relative w-full bg-white pb-20 pt-4 dark:bg-ink md:pb-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mb-14 text-center">
-          <p className="font-grotesk text-sm font-semibold uppercase tracking-[0.25em] text-crimson-500 dark:text-gold">
+          <p className="font-grotesk text-sm font-semibold uppercase tracking-[0.25em] text-navy-500 dark:text-gold">
             The People
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold text-ink dark:text-white md:text-5xl">
@@ -46,18 +46,18 @@ export function Board() {
                   alt={member.name}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 
-                  <div className="absolute inset-0 flex items-end justify-center gap-2 bg-gradient-to-t from-crimson-800/80 to-transparent pb-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute inset-0 flex items-end justify-center gap-2 bg-gradient-to-t from-navy-800/80 to-transparent pb-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <a
                     href="#board"
                     aria-label={`${member.name} on LinkedIn`}
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur transition-colors hover:bg-white hover:text-crimson-600">
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur transition-colors hover:bg-white hover:text-navy-600">
                     
                       <Linkedin className="h-4 w-4" />
                     </a>
                     <a
                     href="#board"
                     aria-label={`Email ${member.name}`}
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur transition-colors hover:bg-white hover:text-crimson-600">
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur transition-colors hover:bg-white hover:text-navy-600">
                     
                       <Mail className="h-4 w-4" />
                     </a>
@@ -65,7 +65,7 @@ export function Board() {
                 </div>
                 <div className="p-4 text-center">
                   <h3 className="font-display font-bold text-ink dark:text-white">{member.name}</h3>
-                  <p className="text-sm text-crimson-500 dark:text-gold">{member.role}</p>
+                  <p className="text-sm text-navy-500 dark:text-gold">{member.role}</p>
                 </div>
               </div>
             </Reveal>

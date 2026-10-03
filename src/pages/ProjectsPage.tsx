@@ -21,10 +21,10 @@ export function ProjectsPage() {
   }, [filters]);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-cream pb-24 pt-24 text-ink dark:bg-ink dark:text-white">
+    <main className="min-h-screen overflow-hidden bg-cream pb-24 text-ink dark:bg-ink dark:text-white">
       <section className="relative isolate overflow-hidden px-6 pb-28 pt-20 md:pb-36 md:pt-28">
         <div className="absolute inset-0 -z-20 bg-ink" />
-        <div aria-hidden className="absolute -right-24 top-0 -z-10 h-96 w-96 rounded-full bg-crimson-500/30 blur-3xl" />
+        <div aria-hidden className="absolute -right-24 top-0 -z-10 h-96 w-96 rounded-full bg-navy-500/30 blur-3xl" />
         <div aria-hidden className="absolute -bottom-32 left-1/4 -z-10 h-80 w-80 rounded-full bg-gold/20 blur-3xl" />
         <motion.div aria-hidden animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: 'linear' }} className="absolute right-[8%] top-16 hidden h-48 w-48 rounded-full border border-dashed border-gold/35 md:block" />
         <div className="mx-auto max-w-6xl">
@@ -40,8 +40,8 @@ export function ProjectsPage() {
       </section>
       <ProjectFilterPanel filters={filters} onChange={setFilters} resultCount={projects.length} />
       <section className="mx-auto max-w-6xl px-6 pt-20">
-        <Reveal className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><p className="font-grotesk text-sm font-bold uppercase tracking-[0.18em] text-crimson-500 dark:text-gold">Selected stories</p><h2 className="mt-3 font-display text-4xl font-bold tracking-tight md:text-5xl">Explore the work.</h2></div><p className="max-w-sm text-sm leading-6 text-ink/55 dark:text-white/55">Open a project to see the people, milestones and details behind the impact.</p></Reveal>
-        {projects.length > 0 ? <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{projects.map((project, index) => <Reveal key={project.id} delay={index * 0.06}><ProjectDiscoveryCard project={project} /></Reveal>)}</div> : <div className="rounded-5xl border border-dashed border-crimson-500/25 bg-white/60 px-8 py-20 text-center dark:bg-white/5"><p className="font-display text-2xl font-bold">No project stories match those filters.</p><button type="button" onClick={() => setFilters(initialFilters)} className="mt-5 text-sm font-bold text-crimson-500 dark:text-gold">Clear filters</button></div>}
+        <Reveal className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><p className="font-grotesk text-sm font-bold uppercase tracking-[0.18em] text-navy-500 dark:text-gold">Selected stories</p><h2 className="mt-3 font-display text-4xl font-bold tracking-tight md:text-5xl">Explore the work.</h2></div><p className="max-w-sm text-sm leading-6 text-ink/55 dark:text-white/55">Open a project to see the people, milestones and details behind the impact.</p></Reveal>
+        {projects.length > 0 ? <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{projects.map((project, index) => <Reveal key={project.id} delay={index * 0.06}><ProjectDiscoveryCard project={project} /></Reveal>)}</div> : <div className="rounded-5xl border border-dashed border-navy-500/25 bg-white/60 px-8 py-20 text-center dark:bg-white/5"><p className="font-display text-2xl font-bold">No project stories match those filters.</p><button type="button" onClick={() => setFilters(initialFilters)} className="mt-5 text-sm font-bold text-navy-500 dark:text-gold">Clear filters</button></div>}
       </section>
     </main>);
 

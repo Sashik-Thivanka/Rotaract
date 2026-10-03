@@ -1,110 +1,211 @@
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { AVENUE_DETAILS } from '../../lib/impactData';
 
+interface AvenueCardProps {
+  avenue: typeof AVENUE_DETAILS[number];
+  index: number;
+  totalAvenues: number;
+  scrollYProgress: any;
+}
 
+function AvenueCard({ avenue, index, totalAvenues, scrollYProgress }: AvenueCardProps) {
+  const isEven = index % 2 === 1;
+  const avenueNumber = String(index + 1).padStart(2, '0');
+  const [firstWord, ...restWords] = avenue.title.split(' ');
+  const secondLine = restWords.join(' ');
 
+  // Each avenue occupies an equal slice of the scroll container
+  const step = 1 / totalAvenues;
+  const start = index * step;
+  const end = (index + 1) * step;
 
+  // Calculate fade in and fade out windows with smooth overlap
+  const fadeInStart = index === 0 ? 0 : start;
+  const fadeInEnd = index === 0 ? 0.05 : start + step * 0.28;
+  const fadeOutStart = index === totalAvenues - 1 ? 0.98 : end - step * 0.28;
+  const fadeOutEnd = index === totalAvenues - 1 ? 1 : end;
 
+  const opacity = useTransform(
+    scrollYProgress,
+    [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd],
+    [index === 0 ? 1 : 0, 1, 1, index === totalAvenues - 1 ? 1 : 0]
+  );
 
+  const scale = useTransform(
+    scrollYProgress,
+    [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd],
+    [index === 0 ? 1 : 0.95, 1, 1, index === totalAvenues - 1 ? 1 : 1.05]
+  );
 
-
-
-import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { AVENUES, type Avenue } from '../../lib/data';
-import { Reveal } from '../ui/Reveal';
-import { Blob } from '../ui/Decor';
-
-const avenueRoutes: Record<string, string> = {
-  'Club Service': 'club-service',
-  'Community Service': 'community-service',
-  Finance: 'finance',
-  'International Service': 'international-service',
-  'Professional Development': 'professional-development',
-  'Sports & Recreation': 'sports-recreation',
-  'Public Relations': 'public-relations',
-  'Digital Services': 'digital-services'
-};
-
-function AvenueCard({ avenue }: {avenue: Avenue;}) {
-  const Icon = avenue.icon;
-  const isFeature = avenue.tint.includes('crimson-500');
+  const y = useTransform(
+    scrollYProgress,
+    [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd],
+    [index === 0 ? 0 : 20, 0, 0, index === totalAvenues - 1 ? 0 : -20]
+  );
 
   return (
-    <Link
-      to={`/avenues/${avenueRoutes[avenue.title]}`}
-      className={`group relative flex min-h-[180px] flex-col justify-between overflow-hidden rounded-4xl p-6 transition-all duration-500 hover:-translate-y-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson-500 ${avenue.span} ${
-      isFeature ?
-      `bg-gradient-to-br ${avenue.tint} text-white shadow-soft` :
-      `bg-gradient-to-br ${avenue.tint} border border-crimson-500/10 bg-white text-ink shadow-neu dark:border-white/10 dark:bg-white/5 dark:text-white dark:shadow-none`}`
-      }>
-      
-      {/* decorative ring */}
-      <span
-        className={`pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full transition-transform duration-700 group-hover:scale-150 ${
-        isFeature ? 'bg-white/10' : 'bg-crimson-500/5 dark:bg-white/5'}`
-        } />
-      
-      <div
-        className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
-        isFeature ? 'bg-white/20' : 'bg-crimson-500/10 text-crimson-500 dark:bg-white/10 dark:text-gold'}`
-        }>
-        
-        <Icon className="h-6 w-6" />
-      </div>
-      <div className="relative mt-4">
-        <h3 className={`font-display text-lg font-bold ${isFeature ? 'md:text-2xl' : ''}`}>
-          {avenue.title}
-        </h3>
-        <p
-          className={`mt-1.5 text-sm leading-relaxed ${
-          isFeature ? 'text-white/80' : 'text-ink/55 dark:text-white/55'}`
-          }>
-          
-          {avenue.description}
-        </p>
-      </div>
-      <span
-        className={`absolute right-5 top-6 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100 ${
-        isFeature ? 'text-white' : 'text-crimson-500 dark:text-gold'}`
-        }>
-        
-        <ArrowUpRight className="h-5 w-5" />
-      </span>
-    </Link>);
+    <motion.div
+      style={{
+        opacity,
+        scale,
+        y,
+        pointerEvents: opacity.get() > 0.1 ? 'auto' : 'none',
+      }}
+      className="absolute inset-0 flex h-full w-full items-center justify-center px-6 sm:px-12 md:px-16 lg:px-24 will-change-[opacity,transform]"
+    >
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
+        {!isEven ? (
+          <>
+            {/* Left: Text Content */}
+            <div className="flex flex-col justify-center lg:col-span-6">
+              <h3
+                style={{ color: 'rgb(197, 160, 71)' }}
+                className="font-cormorant text-2xl font-light uppercase leading-[1.08] tracking-[0.06em] sm:text-3xl md:text-4xl lg:text-5xl"
+              >
+                {firstWord}
+                {secondLine && (
+                  <>
+                    <br />
+                    <span>{secondLine}</span>
+                  </>
+                )}
+              </h3>
 
+              <p className="mt-3 font-cormorant text-base italic tracking-wide text-white/75 sm:text-lg">
+                {avenue.tagline}
+              </p>
+
+              <p className="mt-5 max-w-md font-body text-xs font-light leading-relaxed text-white/65 sm:text-sm md:text-base">
+                {avenue.description}
+              </p>
+
+              <div className="mt-6 flex items-baseline font-cormorant text-5xl font-light sm:text-6xl md:text-7xl">
+                <span style={{ color: 'rgb(197, 160, 71)' }}>{avenueNumber}</span>
+                <span className="ml-3 font-mono text-xs font-normal tracking-widest text-white/40 sm:text-sm">
+                  / 0{totalAvenues}
+                </span>
+              </div>
+            </div>
+
+            {/* Right: Rectangular Image */}
+            <div className="flex items-center justify-center lg:col-span-6 lg:justify-end">
+              <div className="relative aspect-[16/10] w-full max-w-[560px] overflow-hidden border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]">
+                <img
+                  src={avenue.image}
+                  alt={avenue.title}
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Left: Rectangular Image */}
+            <div className="order-2 flex items-center justify-center lg:order-1 lg:col-span-6 lg:justify-start">
+              <div className="relative aspect-[16/10] w-full max-w-[560px] overflow-hidden border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]">
+                <img
+                  src={avenue.image}
+                  alt={avenue.title}
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
+
+            {/* Right: Text Content */}
+            <div className="order-1 flex flex-col justify-center lg:order-2 lg:col-span-6 lg:pl-6">
+              <h3
+                style={{ color: 'rgb(197, 160, 71)' }}
+                className="font-cormorant text-2xl font-light uppercase leading-[1.08] tracking-[0.06em] sm:text-3xl md:text-4xl lg:text-5xl"
+              >
+                {firstWord}
+                {secondLine && (
+                  <>
+                    <br />
+                    <span>{secondLine}</span>
+                  </>
+                )}
+              </h3>
+
+              <p className="mt-3 font-cormorant text-base italic tracking-wide text-white/75 sm:text-lg">
+                {avenue.tagline}
+              </p>
+
+              <p className="mt-5 max-w-md font-body text-xs font-light leading-relaxed text-white/65 sm:text-sm md:text-base">
+                {avenue.description}
+              </p>
+
+              <div className="mt-6 flex items-baseline font-cormorant text-5xl font-light sm:text-6xl md:text-7xl">
+                <span style={{ color: 'rgb(197, 160, 71)' }}>{avenueNumber}</span>
+                <span className="ml-3 font-mono text-xs font-normal tracking-widest text-white/40 sm:text-sm">
+                  / 0{totalAvenues}
+                </span>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </motion.div>
+  );
 }
 
 export function Avenues() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const totalAvenues = AVENUE_DETAILS.length; // 8
+
+  // Scroll track for pinned fading sequence
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  });
+
   return (
-    <section
+    <div
+      ref={containerRef}
       id="avenues"
-      className="relative w-full overflow-hidden bg-cream py-20 dark:bg-crimson-900/20 md:py-28">
-      
-      <Blob className="right-0 top-1/4 h-80 w-80 bg-purple-300/20" />
-      <Blob className="left-0 bottom-1/4 h-72 w-72 bg-gold/20" />
-
-      <div className="relative mx-auto max-w-6xl px-6">
-        <Reveal className="mb-14 max-w-2xl">
-          <p className="font-grotesk text-sm font-semibold uppercase tracking-[0.25em] text-crimson-500 dark:text-gold">
-            How We Serve
-          </p>
-          <h2 className="mt-3 font-display text-3xl font-bold text-ink dark:text-white md:text-5xl">
-            Eight avenues of service
-          </h2>
-          <p className="mt-4 text-ink/60 dark:text-white/60">
-            Every passion has a home here. Explore the eight pathways through which our members
-            create meaningful, lasting change.
-          </p>
-        </Reveal>
-
-        <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {AVENUES.map((avenue, i) =>
-          <Reveal key={avenue.title} delay={i * 0.06} className={avenue.span}>
-              <AvenueCard avenue={avenue} />
-            </Reveal>
-          )}
+      className="relative z-20 h-[500vh] w-full bg-black"
+    >
+      {/* Sticky Fullscreen Stage */}
+      <section
+        aria-label="Eight Avenues of Service"
+        className="sticky top-0 flex h-[100dvh] w-full flex-col justify-center overflow-hidden bg-black text-white select-none"
+      >
+        {/* ── BACKGROUND VIDEO LAYER ─── */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <video
+            ref={videoRef}
+            src="/assets/video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="h-full w-full object-cover filter blur-[2px] brightness-[42%] contrast-[110%]"
+          />
+          {/* Subtle vignette and dark scrim overlay to ensure clean contrast */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/70" />
         </div>
-      </div>
-    </section>);
 
+        {/* ── STACKED FADING AVENUES ─────────────── */}
+        <div className="relative z-20 h-[80vh] w-full">
+          {AVENUE_DETAILS.map((avenue, index) => (
+            <AvenueCard
+              key={avenue.slug}
+              avenue={avenue}
+              index={index}
+              totalAvenues={totalAvenues}
+              scrollYProgress={scrollYProgress}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 }
+
+export default Avenues;
+

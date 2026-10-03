@@ -19,16 +19,16 @@ const projectRoutes: Record<string, string> = {
 const statusStyles: Record<string, string> = {
   Completed: 'bg-emerald-500/90 text-white',
   Ongoing: 'bg-gold text-ink',
-  Upcoming: 'bg-crimson-500 text-white'
+  Upcoming: 'bg-navy-500 text-white'
 };
 
 export function Projects() {
   return (
-    <section id="projects" className="relative w-full bg-cream py-20 dark:bg-crimson-900/20 md:py-28">
+    <section id="projects" className="relative w-full bg-cream py-20 dark:bg-navy-900/20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mb-14 flex flex-col items-end justify-between gap-4 md:flex-row">
           <div>
-            <p className="font-grotesk text-sm font-semibold uppercase tracking-[0.25em] text-crimson-500 dark:text-gold">
+            <p className="font-grotesk text-sm font-semibold uppercase tracking-[0.25em] text-navy-500 dark:text-gold">
               Featured Work
             </p>
             <h2 className="mt-3 max-w-md font-display text-3xl font-bold text-ink dark:text-white md:text-5xl">
@@ -37,7 +37,7 @@ export function Projects() {
           </div>
           <Link
             to="/projects"
-            className="group flex items-center gap-1.5 text-sm font-semibold text-crimson-500 dark:text-gold">
+            className="group flex items-center gap-1.5 text-sm font-semibold text-navy-500 dark:text-gold">
             
             View all projects
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -76,7 +76,7 @@ export function Projects() {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/60 dark:text-white/60">
                     {project.description}
                   </p>
-                  <Link to={`/projects/${projectRoutes[project.id]}`} className="group/btn mt-5 flex items-center gap-1.5 self-start text-sm font-semibold text-crimson-500 dark:text-gold">
+                  <Link to={`/projects/${projectRoutes[project.id]}`} className="group/btn mt-5 flex items-center gap-1.5 self-start text-sm font-semibold text-navy-500 dark:text-gold">
                     Learn More
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </Link>

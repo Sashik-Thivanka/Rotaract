@@ -36,9 +36,9 @@ export function Testimonials() {
   const t = TESTIMONIALS[index];
 
   return (
-    <section className="relative w-full overflow-hidden bg-crimson-700 py-20 dark:bg-crimson-900 md:py-28">
+    <section className="relative w-full overflow-hidden bg-navy-700 py-20 dark:bg-navy-900 md:py-28">
       <Blob className="-left-10 top-10 h-72 w-72 bg-gold/20" />
-      <Blob className="-right-10 bottom-10 h-72 w-72 bg-crimson-400/40" />
+      <Blob className="-right-10 bottom-10 h-72 w-72 bg-navy-400/40" />
 
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <Reveal>

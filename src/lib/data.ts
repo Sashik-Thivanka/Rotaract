@@ -122,56 +122,56 @@ export const AVENUES: Avenue[] = [
   description: 'Building fellowship and strengthening bonds within our club family.',
   icon: Users,
   span: 'lg:col-span-2 lg:row-span-2',
-  tint: 'from-crimson-500/90 to-crimson-700/90'
+  tint: 'from-navy-500/90 to-navy-700/90'
 },
 {
   title: 'Community Service',
   description: 'Uplifting local communities through hands-on volunteer initiatives.',
   icon: HeartHandshake,
   span: 'lg:col-span-2',
-  tint: 'from-crimson-400/10 to-gold/10'
+  tint: 'from-navy-400/10 to-gold/10'
 },
 {
   title: 'Finance',
   description: 'Sustaining our mission through smart fundraising and stewardship.',
   icon: Wallet,
   span: '',
-  tint: 'from-gold/10 to-crimson-300/10'
+  tint: 'from-gold/10 to-navy-300/10'
 },
 {
   title: 'International Service',
   description: 'Connecting hands across borders for global impact.',
   icon: Globe2,
   span: '',
-  tint: 'from-blue-400/10 to-crimson-300/10'
+  tint: 'from-blue-400/10 to-navy-300/10'
 },
 {
   title: 'Professional Development',
   description: 'Growing tomorrow’s leaders through mentorship and skill-building.',
   icon: GraduationCap,
   span: 'lg:col-span-2',
-  tint: 'from-purple-400/10 to-crimson-300/10'
+  tint: 'from-purple-400/10 to-navy-300/10'
 },
 {
   title: 'Sports & Recreation',
   description: 'Celebrating energy, wellness and team spirit through play.',
   icon: Trophy,
   span: '',
-  tint: 'from-gold/10 to-crimson-200/10'
+  tint: 'from-gold/10 to-navy-200/10'
 },
 {
   title: 'Public Relations',
   description: 'Amplifying our story and inspiring the next generation.',
   icon: Megaphone,
   span: '',
-  tint: 'from-pink-400/10 to-crimson-300/10'
+  tint: 'from-pink-400/10 to-navy-300/10'
 },
 {
   title: 'Digital Services',
   description: 'Powering our impact with technology and creativity.',
   icon: MonitorSmartphone,
   span: 'lg:col-span-2',
-  tint: 'from-crimson-500/90 to-crimson-800/90'
+  tint: 'from-navy-500/90 to-navy-800/90'
 }];
 
 
