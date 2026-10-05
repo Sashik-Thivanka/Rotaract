@@ -1,110 +1,263 @@
-
-
-
-
-
-
-
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { MapPin, CalendarDays } from 'lucide-react';
 import { EVENTS, type EventItem } from '../../lib/data';
-import { Reveal } from '../ui/Reveal';
 
+/* ─────────────────────────────────────────────────────────────────────────
+   Live countdown
+───────────────────────────────────────────────────────────────────────── */
 function useCountdown(target: string) {
-  const [remaining, setRemaining] = useState(() => Math.max(0, +new Date(target) - Date.now()));
+  const [remaining, setRemaining] = useState(() =>
+    Math.max(0, +new Date(target) - Date.now())
+  );
   useEffect(() => {
-    const id = setInterval(() => {
-      setRemaining(Math.max(0, +new Date(target) - Date.now()));
-    }, 1000);
+    const id = setInterval(
+      () => setRemaining(Math.max(0, +new Date(target) - Date.now())),
+      1000
+    );
     return () => clearInterval(id);
   }, [target]);
-
-  const days = Math.floor(remaining / 86400000);
-  const hours = Math.floor(remaining % 86400000 / 3600000);
-  const minutes = Math.floor(remaining % 3600000 / 60000);
-  const seconds = Math.floor(remaining % 60000 / 1000);
-  return { days, hours, minutes, seconds };
+  return {
+    days:    Math.floor(remaining / 86400000),
+    hours:   Math.floor((remaining % 86400000) / 3600000),
+    minutes: Math.floor((remaining % 3600000)  / 60000),
+    seconds: Math.floor((remaining % 60000)    / 1000),
+  };
 }
 
-function CountdownCell({ value, label }: {value: number;label: string;}) {
+/* ── Countdown cell ───────────────────────────────────────────────────── */
+function CountdownCell({ value, label }: { value: number; label: string }) {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-navy-500/10 px-3 py-2 dark:bg-white/10">
-      <span className="font-display text-xl font-bold tabular-nums text-navy-600 dark:text-gold">
+    <div className="flex flex-col items-center border border-white/10 px-3 py-2 sm:px-4 sm:py-3">
+      <span
+        className="font-cormorant text-2xl font-light tabular-nums leading-none sm:text-3xl"
+        style={{ color: 'rgb(197,160,71)' }}
+      >
         {String(value).padStart(2, '0')}
       </span>
-      <span className="text-[10px] font-medium uppercase tracking-wider text-ink/50 dark:text-white/50">
+      <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.22em] text-white/40">
         {label}
       </span>
-    </div>);
-
+    </div>
+  );
 }
 
-function EventRow({ event, index }: {event: EventItem;index: number;}) {
+/* ─────────────────────────────────────────────────────────────────────────
+   Single timeline item
+   isLeft  → card on left,  slides in from left
+   !isLeft → card on right, slides in from right
+───────────────────────────────────────────────────────────────────────── */
+function TimelineItem({
+  event,
+  index,
+}: {
+  event: EventItem;
+  index: number;
+}) {
+  const isLeft = index % 2 === 0;
+  const ref    = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-15% 0px -15% 0px' });
   const { days, hours, minutes, seconds } = useCountdown(event.targetDate);
-  const isEven = index % 2 === 1;
+
+  const cardVariants = {
+    hidden:  { opacity: 0, x: isLeft ? -60 : 60 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
 
   return (
-    <Reveal delay={index * 0.1}>
-      <div className="relative pl-10 md:pl-0">
-        {/* timeline dot */}
-        <span className="absolute left-[7px] top-8 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-cream bg-navy-500 shadow-glow dark:border-ink md:left-1/2" />
-
-        <div
-          className={`flex flex-col overflow-hidden rounded-4xl bg-white shadow-neu dark:bg-white/5 dark:shadow-none dark:ring-1 dark:ring-white/10 md:w-[calc(50%-2.5rem)] ${
-          isEven ? 'md:ml-auto' : ''}`
-          }>
-          
-          <div className="relative aspect-[16/7] overflow-hidden">
-            <img src={event.image} alt={event.title} className="h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 to-transparent" />
-            <div className="absolute bottom-4 left-5 text-white">
-              <h3 className="font-display text-xl font-bold md:text-2xl">{event.title}</h3>
-            </div>
-          </div>
-          <div className="p-6">
-            <div className="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink/60 dark:text-white/60">
-              <span className="flex items-center gap-1.5">
-                <CalendarDays className="h-4 w-4 text-navy-500 dark:text-gold" /> {event.date}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <MapPin className="h-4 w-4 text-navy-500 dark:text-gold" /> {event.location}
-              </span>
-            </div>
-            <div className="grid grid-cols-4 gap-2">
-              <CountdownCell value={days} label="Days" />
-              <CountdownCell value={hours} label="Hrs" />
-              <CountdownCell value={minutes} label="Min" />
-              <CountdownCell value={seconds} label="Sec" />
-            </div>
-          </div>
-        </div>
+    /* Row: each item occupies its own row in the grid */
+    <div
+      ref={ref}
+      className="relative grid grid-cols-[1fr_56px_1fr] items-start"
+    >
+      {/* ── Left slot ── */}
+      <div className={isLeft ? 'pr-6 sm:pr-10 flex justify-end' : ''}>
+        {isLeft && (
+          <motion.div
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+            variants={cardVariants}
+            className="w-full max-w-md"
+          >
+            <EventCard event={event} index={index} />
+          </motion.div>
+        )}
       </div>
-    </Reveal>);
 
+      {/* ── Centre axis: node ── */}
+      <div className="flex flex-col items-center pt-6">
+        {/* Node */}
+        <motion.div
+          initial={{ scale: 0.6, opacity: 0 }}
+          animate={inView ? { scale: 1, opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="relative z-10 flex h-9 w-9 items-center justify-center"
+        >
+          {/* Pulse ring when active */}
+          {inView && (
+            <motion.span
+              className="absolute inset-0 rounded-full"
+              style={{ border: '1.5px solid rgb(197,160,71)' }}
+              initial={{ scale: 1, opacity: 0.7 }}
+              animate={{ scale: 2.2, opacity: 0 }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: 'easeOut' }}
+            />
+          )}
+          {/* Solid circle */}
+          <span
+            className="h-3.5 w-3.5 rounded-full ring-2 ring-offset-2"
+            style={{
+              backgroundColor: 'rgb(197,160,71)',
+              ringColor: 'rgb(197,160,71)',
+              ringOffsetColor: '#0c0c0c',
+              boxShadow: inView
+                ? '0 0 0 2px #0c0c0c, 0 0 0 4px rgb(197,160,71), 0 0 16px 4px rgba(197,160,71,0.4)'
+                : '0 0 0 2px #0c0c0c, 0 0 0 4px rgba(197,160,71,0.4)',
+            }}
+          />
+        </motion.div>
+      </div>
+
+      {/* ── Right slot ── */}
+      <div className={!isLeft ? 'pl-6 sm:pl-10 flex justify-start' : ''}>
+        {!isLeft && (
+          <motion.div
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+            variants={cardVariants}
+            className="w-full max-w-md"
+          >
+            <EventCard event={event} index={index} />
+          </motion.div>
+        )}
+      </div>
+    </div>
+  );
 }
 
-export function Events() {
+/* ── Event card interior (shared by both sides) ───────────────────────── */
+function EventCard({ event, index }: { event: EventItem; index: number }) {
+  const { days, hours, minutes, seconds } = useCountdown(event.targetDate);
   return (
-    <section id="events" className="relative w-full scroll-mt-24 bg-white py-20 dark:bg-ink md:py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <Reveal className="mb-16 text-center">
-          <p className="font-grotesk text-sm font-semibold uppercase tracking-[0.25em] text-navy-500 dark:text-gold">
-            What's Next
-          </p>
-          <h2 className="mt-3 font-display text-3xl font-bold text-ink dark:text-white md:text-5xl">
-            Upcoming events
-          </h2>
-        </Reveal>
-
-        <div className="relative space-y-10">
-          {/* center line */}
-          <span className="absolute left-[7px] top-0 h-full w-0.5 bg-gradient-to-b from-navy-500/40 via-gold/40 to-transparent md:left-1/2 md:-translate-x-1/2" />
-          {EVENTS.map((event, i) =>
-          <EventRow key={event.id} event={event} index={i} />
-          )}
+    <article className="overflow-hidden bg-white/[0.04] border border-white/10 group">
+      {/* Image */}
+      <div className="relative aspect-[16/9] overflow-hidden">
+        <img
+          src={event.image}
+          alt={event.title}
+          loading="lazy"
+          className="h-full w-full object-cover brightness-70 transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+        {/* Index */}
+        <span
+          className="absolute left-4 top-4 font-mono text-xs uppercase tracking-[0.28em]"
+          style={{ color: 'rgb(197,160,71)' }}
+        >
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        {/* Title */}
+        <div className="absolute bottom-4 left-4 right-4">
+          <h3 className="font-cormorant text-xl font-light uppercase leading-[1.06] tracking-[0.05em] text-white sm:text-2xl">
+            {event.title}
+          </h3>
         </div>
       </div>
-    </section>);
 
+      {/* Meta + countdown */}
+      <div className="px-4 pt-4 pb-5 sm:px-5 sm:pt-5">
+        {/* Date & location */}
+        <div className="flex flex-wrap gap-x-5 gap-y-1 mb-5">
+          <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-white/50">
+            <CalendarDays className="h-3 w-3 flex-shrink-0" style={{ color: 'rgb(197,160,71)' }} />
+            {event.date}
+          </span>
+          <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-white/50">
+            <MapPin className="h-3 w-3 flex-shrink-0" style={{ color: 'rgb(197,160,71)' }} />
+            {event.location}
+          </span>
+        </div>
+        {/* Countdown */}
+        <div className="grid grid-cols-4">
+          <CountdownCell value={days}    label="Days" />
+          <CountdownCell value={hours}   label="Hrs"  />
+          <CountdownCell value={minutes} label="Min"  />
+          <CountdownCell value={seconds} label="Sec"  />
+        </div>
+      </div>
+    </article>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Section
+───────────────────────────────────────────────────────────────────────── */
+export function Events() {
+  /* Scroll-driven progress line */
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start 0.8', 'end 0.5'],
+  });
+  const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <section
+      id="events"
+      ref={sectionRef}
+      className="relative w-full overflow-hidden scroll-mt-24"
+      style={{ backgroundColor: '#0c0c0c' }}
+    >
+      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-8 md:py-36">
+
+        {/* ── Section header ── */}
+        <div className="mb-20 text-center">
+          <span className="font-mono text-xs uppercase tracking-[0.28em] text-[rgb(197,160,71)]">
+            ◆ &nbsp;What's Next
+          </span>
+          <h2 className="mt-4 font-cormorant text-4xl font-light uppercase leading-[1.06] tracking-[0.07em] text-white sm:text-5xl md:text-6xl">
+            Upcoming{' '}
+            <span style={{ color: 'rgb(197,160,71)' }}>Events</span>
+          </h2>
+        </div>
+
+        {/* ── Timeline ── */}
+        <div className="relative">
+
+          {/* Axis track (background) */}
+          <div
+            className="absolute left-1/2 top-0 -translate-x-1/2 w-px h-full"
+            style={{ background: 'rgba(255,255,255,0.07)' }}
+          />
+
+          {/* Axis progress fill */}
+          <motion.div
+            className="absolute left-1/2 top-0 -translate-x-1/2 w-px origin-top"
+            style={{
+              background: 'linear-gradient(to bottom, rgb(197,160,71), rgba(197,160,71,0.15))',
+              scaleY: lineScaleY,
+              height: '100%',
+            }}
+          />
+
+          {/* Items */}
+          <div className="flex flex-col gap-16 sm:gap-20">
+            {EVENTS.map((event, i) => (
+              <TimelineItem key={event.id} event={event} index={i} />
+            ))}
+          </div>
+
+          {/* Bottom cap dot */}
+          <div
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-2 w-2 rounded-full"
+            style={{ backgroundColor: 'rgb(197,160,71)', opacity: 0.4 }}
+          />
+        </div>
+      </div>
+    </section>
+  );
 }

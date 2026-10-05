@@ -105,6 +105,14 @@ export const EVENTS: EventItem[] = [
   targetDate: '2026-09-05T08:00:00',
   location: 'Colombo District',
   image: "/3f14fe35-b548-4965-8c3f-3b2cfbb4f675.jpg"
+},
+{
+  id: 'e3',
+  title: 'Annual Gala Night 2026',
+  date: 'October 18, 2026',
+  targetDate: '2026-10-18T18:00:00',
+  location: 'Colombo Hilton Grand Ballroom',
+  image: "/9ea0281f-b406-40be-843a-2f5feee2eadb.jpg"
 }];
 
 
