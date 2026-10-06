@@ -1,24 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -72,6 +52,7 @@ export function Footer() {
     { name: 'layer5', x: bottomLayerX, y: bottomLayerY, className: 'z-10' },
     { name: 'layer3', x: layerThreeX, y: layerThreeY, className: 'z-30' },
     { name: 'layer2', x: layerTwoX, y: layerTwoY, className: 'z-40' },
+    { name: 'mist', x: 0, y: 0, className: 'z-[45] opacity-60' },
     { name: 'layer1', x: topLayerX, y: topLayerY, className: 'z-50' }
   ];
 
