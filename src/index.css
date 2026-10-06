@@ -85,6 +85,24 @@ main.pt-24 {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+@keyframes counter-flip-top {
+  from { transform: rotateX(0deg); }
+  to { transform: rotateX(-90deg); }
+}
+@keyframes counter-flip-bottom {
+  from { transform: rotateX(90deg); }
+  to { transform: rotateX(0deg); }
+}
+.counter-flip-top {
+  animation: counter-flip-top 650ms ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.counter-flip-bottom {
+  animation: counter-flip-bottom 650ms ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
 .glass {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);

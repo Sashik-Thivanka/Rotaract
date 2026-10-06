@@ -27,14 +27,15 @@ export interface Stat {
   value: number;
   suffix?: string;
   prefix?: string;
+  minDigits?: number;
 }
 
 export const STATS: Stat[] = [
-{ label: 'Projects Completed', value: 128, suffix: '+' },
-{ label: 'Active Members', value: 210 },
-{ label: 'Volunteer Hours', value: 15400, suffix: '+' },
+{ label: 'Projects Completed', value: 117, suffix: '+' },
+{ label: 'Active Members', value: 58, minDigits: 3 },
+{ label: 'Volunteer Hours', value: 1005 },
 { label: 'Funds Raised', value: 42, prefix: 'LKR ', suffix: 'M' },
-{ label: 'Lives Impacted', value: 32000, suffix: '+' }];
+{ label: 'Lives Impacted', value: 4000, minDigits: 5 }];
 
 
 export interface Project {

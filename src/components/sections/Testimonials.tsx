@@ -1,28 +1,11 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { TESTIMONIALS } from '../../lib/data';
 import { Reveal } from '../ui/Reveal';
 import { Blob } from '../ui/Decor';
+const TESTIMONIAL_NOISE =
+  "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.42'/%3E%3C/svg%3E";
 
 export function Testimonials() {
   const [index, setIndex] = useState(0);
@@ -36,14 +19,19 @@ export function Testimonials() {
   const t = TESTIMONIALS[index];
 
   return (
-    <section className="relative w-full overflow-hidden bg-navy-700 py-20 dark:bg-navy-900 md:py-28">
-      <Blob className="-left-10 top-10 h-72 w-72 bg-gold/20" />
-      <Blob className="-right-10 bottom-10 h-72 w-72 bg-navy-400/40" />
+    <section className="relative w-full overflow-hidden bg-[#ECECE8] py-20 text-ink md:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-35 mix-blend-multiply"
+        style={{ backgroundImage: `url("${TESTIMONIAL_NOISE}")`, backgroundSize: '180px 180px' }}
+      />
+      <Blob className="-left-10 top-10 h-72 w-72 bg-gold/10" />
+      <Blob className="-right-10 bottom-10 h-72 w-72 bg-ink/5" />
 
-      <div className="relative mx-auto max-w-3xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <Reveal>
           <Quote className="mx-auto mb-6 h-12 w-12 text-gold" />
-          <p className="font-grotesk text-sm font-semibold uppercase tracking-[0.25em] text-gold">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-ink/65">
             Voices of Rotaract
           </p>
         </Reveal>
@@ -58,7 +46,7 @@ export function Testimonials() {
               exit={{ opacity: 0, x: dir * -40 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
               
-              <p className="font-display text-xl font-medium leading-relaxed text-white md:text-2xl">
+              <p className="font-cormorant text-xl font-medium leading-relaxed text-ink md:text-2xl">
                 “{t.quote}”
               </p>
               <div className="mt-8 flex flex-col items-center gap-3">
@@ -68,8 +56,8 @@ export function Testimonials() {
                   className="h-16 w-16 rounded-full object-cover ring-4 ring-gold/40" />
                 
                 <div>
-                  <p className="font-display font-bold text-white">{t.name}</p>
-                  <p className="text-sm text-white/70">{t.role}</p>
+                  <p className="font-display font-bold text-ink">{t.name}</p>
+                  <p className="font-body text-sm text-ink/65">{t.role}</p>
                 </div>
               </div>
             </motion.div>
@@ -80,7 +68,7 @@ export function Testimonials() {
           <button
             onClick={() => paginate(-1)}
             aria-label="Previous testimonial"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20">
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-ink/10 text-ink transition-colors hover:bg-ink/20">
             
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -94,7 +82,7 @@ export function Testimonials() {
               }}
               aria-label={`Go to testimonial ${i + 1}`}
               className={`h-2 rounded-full transition-all ${
-              i === index ? 'w-8 bg-gold' : 'w-2 bg-white/30'}`
+              i === index ? 'w-8 bg-gold' : 'w-2 bg-ink/25'}`
               } />
 
             )}
@@ -102,7 +90,7 @@ export function Testimonials() {
           <button
             onClick={() => paginate(1)}
             aria-label="Next testimonial"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20">
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-ink/10 text-ink transition-colors hover:bg-ink/20">
             
             <ChevronRight className="h-5 w-5" />
           </button>
