@@ -7,8 +7,9 @@ import {
   Trophy as TrophyIcon,
   Users as UsersIcon,
   Wallet as WalletIcon,
-  type LucideIcon } from
-'lucide-react';
+  type LucideIcon
+} from
+  'lucide-react';
 
 export interface AvenueDirector {
   name: string;
@@ -63,10 +64,10 @@ export const AVENUE_DETAILS: AvenueDetail[] = [
       bottom: "/assets/avenues/club-service-bottom.jpg",
     },
     accent: 'navy',
-    completedProjects: 18,
-    directors: 3,
-    volunteers: 140,
-    hours: 860,
+    completedProjects: 8,
+    directors: 2,
+    volunteers: 35,
+    hours: 140,
     pillars: [
       { title: 'Fellowship & Traditions', desc: 'Crafting signature gatherings and warm social settings that build authentic camaraderie.' },
       { title: 'Internal Operations', desc: 'Managing club administration, secretarial documentation, and seamless general meetings.' },
@@ -93,10 +94,10 @@ export const AVENUE_DETAILS: AvenueDetail[] = [
       bottom: "/assets/gallery/NO_FUSION_0701_003.webp",
     },
     accent: 'rose',
-    completedProjects: 42,
+    completedProjects: 4,
     directors: 2,
-    volunteers: 320,
-    hours: 2400,
+    volunteers: 45,
+    hours: 180,
     pillars: [
       { title: 'Healthcare & Vital Aid', desc: 'Organising district blood donation drives, health screenings, and medical relief.' },
       { title: 'Rural Education Support', desc: 'Supplying libraries, textbooks, and interactive learning tools to remote schools.' },
@@ -123,10 +124,10 @@ export const AVENUE_DETAILS: AvenueDetail[] = [
       bottom: "/assets/gallery/NO_FUSION_0723_019.webp",
     },
     accent: 'sky',
-    completedProjects: 21,
+    completedProjects: 5,
     directors: 1,
-    volunteers: 180,
-    hours: 1120,
+    volunteers: 25,
+    hours: 90,
     pillars: [
       { title: 'Twin Club Agreements', desc: 'Establishing formal partnerships with overseas Rotaract clubs for collaborative service.' },
       { title: 'Global Cultural Exchange', desc: 'Hosting virtual and in-person summits that celebrate diversity and mutual respect.' },
@@ -152,10 +153,10 @@ export const AVENUE_DETAILS: AvenueDetail[] = [
       bottom: "/assets/gallery/IMG_8143.webp",
     },
     accent: 'violet',
-    completedProjects: 26,
+    completedProjects: 4,
     directors: 2,
-    volunteers: 210,
-    hours: 1450,
+    volunteers: 30,
+    hours: 120,
     pillars: [
       { title: 'Industry Readiness & Skills', desc: 'Equipping members with high-demand tech, leadership, and soft skills.' },
       { title: 'Executive Mentorship', desc: 'Connecting undergraduates 1-on-1 with senior tech executives and alumni.' },
@@ -182,10 +183,10 @@ export const AVENUE_DETAILS: AvenueDetail[] = [
       bottom: "/assets/gallery/IMG_8239.webp",
     },
     accent: 'fuchsia',
-    completedProjects: 29,
+    completedProjects: 4,
     directors: 2,
-    volunteers: 195,
-    hours: 1300,
+    volunteers: 20,
+    hours: 80,
     pillars: [
       { title: 'Brand Stewardship', desc: 'Maintaining aesthetic elegance and consistent visual brand identity across all media.' },
       { title: 'Visual & Editorial Storytelling', desc: 'Crafting powerful narratives that turn project metrics into human emotion.' },
@@ -212,10 +213,10 @@ export const AVENUE_DETAILS: AvenueDetail[] = [
       bottom: "/assets/gallery/IMG_8224.webp",
     },
     accent: 'orange',
-    completedProjects: 17,
+    completedProjects: 5,
     directors: 2,
-    volunteers: 160,
-    hours: 920,
+    volunteers: 25,
+    hours: 110,
     pillars: [
       { title: 'Inter-Batch Tournaments', desc: 'Organising annual tournaments across cricket, futsal, basketball, and badminton.' },
       { title: 'Wellness & Mindfulness', desc: 'Promoting healthy work-life balance, outdoor trekking, and mental health check-ins.' },
@@ -242,10 +243,10 @@ export const AVENUE_DETAILS: AvenueDetail[] = [
       bottom: "/assets/gallery/IMG_8199.webp",
     },
     accent: 'amber',
-    completedProjects: 15,
+    completedProjects: 9,
     directors: 2,
-    volunteers: 110,
-    hours: 780,
+    volunteers: 30,
+    hours: 130,
     pillars: [
       { title: 'Fiscal Transparency & Auditing', desc: 'Maintaining impeccable financial books, transparent ledgers, and formal audits.' },
       { title: 'Corporate Sponsorships', desc: 'Partnering with leading enterprises for sustainable project funding and brand alignment.' },
@@ -272,10 +273,10 @@ export const AVENUE_DETAILS: AvenueDetail[] = [
       bottom: "/assets/gallery/IMG_8132.webp",
     },
     accent: 'cyan',
-    completedProjects: 24,
+    completedProjects: 2,
     directors: 1,
-    volunteers: 155,
-    hours: 1250,
+    volunteers: 15,
+    hours: 60,
     pillars: [
       { title: 'Web Systems & Engineering', desc: 'Architecting fast, responsive, and secure digital platforms for club activities.' },
       { title: 'UI/UX & Experience Craft', desc: 'Crafting pixel-perfect, accessible, and delightful digital user journeys.' },
@@ -306,145 +307,72 @@ export interface ProjectCatalogItem {
 }
 
 export const PROJECT_CATALOG: ProjectCatalogItem[] = [
-{
-  id: 'achieve-beyond',
-  title: 'Achieve Beyond 3.0',
-  avenue: 'Professional Development',
-  date: 'May 2026',
-  description: 'A signature career readiness and leadership accelerator preparing undergraduates for the corporate world with practical skills and mentoring.',
-  image: '/assets/projects/achieve-beyond.jpg',
-  status: 'Completed',
-  category: 'Professional Skills',
-  year: '2026',
-  collaboration: 'Rotary Club of Colombo Down Town',
-  volunteers: 68,
-  photos: 46,
-  likes: 165
-},
-{
-  id: 'manudam-viyamana',
-  title: 'මනුදම් වියමන 2026',
-  avenue: 'Community Service',
-  date: 'Jun 2026',
-  description: 'A heartfelt community outreach project providing essential aid, nutrition packs, and sustainable support to underserved families.',
-  image: '/assets/projects/manudam-viyamana.jpg',
-  status: 'Completed',
-  category: 'Community Aid',
-  year: '2026',
-  collaboration: 'Rotaract Club of UCSC',
-  volunteers: 84,
-  photos: 52,
-  likes: 198
-},
-{
-  id: 'framelab',
-  title: 'FrameLab',
-  avenue: 'Professional Development',
-  date: 'Jul 2026',
-  description: "FrameLab is a practical workshop designed to enhance participants' video editing skills by introducing industry-standard tools, creative techniques, and storytelling principles for producing engaging digital content.",
-  image: '/assets/projects/frameLab.png',
-  status: 'Completed',
-  category: 'Media & Editing',
-  year: '2026',
-  collaboration: 'UCSC Media Unit',
-  volunteers: 45,
-  photos: 34,
-  likes: 182
-},
-{
-  id: 'book-of-hope',
-  title: 'Book of Hope',
-  avenue: 'Community Service',
-  date: 'Mar 2026',
-  description: 'Building a bright, well-stocked children’s library for young readers in an underserved community.',
-  image: "/d9bd489e-919e-405e-9ba0-68bc147e9344.jpg",
-  status: 'Ongoing',
-  category: 'Education',
-  year: '2026',
-  collaboration: 'Rotaract District 3220',
-  volunteers: 76,
-  photos: 48,
-  likes: 128,
-  progress: 68
-},
-
-{
-  id: 'books-beyond',
-  title: 'Books & Beyond',
-  avenue: 'International Service',
-  date: 'Apr 2026',
-  description: 'Delivering school essentials and stories that open doors to brighter learning futures.',
-  image: "/67a57244-695d-4354-86ae-42f897a404b4.jpg",
-  status: 'Ongoing',
-  category: 'Education',
-  year: '2026',
-  volunteers: 64,
-  photos: 32,
-  likes: 91,
-  progress: 42
-},
-{
-  id: 'member-mosaic',
-  title: 'Member Mosaic',
-  avenue: 'Club Service',
-  date: 'Jan 2026',
-  description: 'A signature welcome experience that turned new-member introductions into lasting friendships.',
-  image: "/1e74bf3b-bd1e-4979-a2ae-f0d17883d4b4.jpg",
-  status: 'Completed',
-  category: 'Fellowship',
-  year: '2026',
-  volunteers: 38,
-  photos: 54,
-  likes: 174
-},
-{
-  id: 'rhythm-of-us',
-  title: 'Rhythm of Us',
-  avenue: 'Club Service',
-  date: 'Dec 2025',
-  description: 'An intimate evening of music, stories and celebration created by and for the club family.',
-  image: "/3f14fe35-b548-4965-8c3f-3b2cfbb4f675.jpg",
-  status: 'Completed',
-  category: 'Fellowship',
-  year: '2025',
-  volunteers: 29,
-  photos: 67,
-  likes: 203
-},
-{
-  id: 'future-ready',
-  title: 'Future Ready',
-  avenue: 'Professional Development',
-  date: 'Nov 2025',
-  description: 'A hands-on career lab connecting members with mentors, portfolios and practical insight.',
-  image: "/7bd60e2b-0f1c-4507-9b7b-43763cc9d0f6.jpg",
-  status: 'Completed',
-  category: 'Leadership',
-  year: '2025',
-  collaboration: 'UCSC Alumni Network',
-  volunteers: 42,
-  photos: 41,
-  likes: 159
-}];
+  {
+    id: 'achieve-beyond',
+    title: 'Achieve Beyond 3.0',
+    avenue: 'Professional Development',
+    date: 'May 2026',
+    description: 'A signature career readiness and leadership accelerator preparing undergraduates for the corporate world with practical skills and mentoring.',
+    image: '/assets/projects/achieve-beyond.jpg',
+    status: 'Completed',
+    category: 'Professional Skills',
+    year: '2026',
+    collaboration: 'Rotary Club of Colombo Down Town',
+    volunteers: 68,
+    photos: 46,
+    likes: 165
+  },
+  {
+    id: 'manudam-viyamana',
+    title: 'මනුදම් වියමන 2026',
+    avenue: 'Community Service',
+    date: 'Jun 2026',
+    description: 'A heartfelt community outreach project providing essential aid, nutrition packs, and sustainable support to underserved families.',
+    image: '/assets/projects/manudam-viyamana.jpg',
+    status: 'Completed',
+    category: 'Community Aid',
+    year: '2026',
+    collaboration: 'Rotaract Club of UCSC',
+    volunteers: 84,
+    photos: 52,
+    likes: 198
+  },
+  {
+    id: 'framelab',
+    title: 'FrameLab',
+    avenue: 'Professional Development',
+    date: 'Jul 2026',
+    description: "FrameLab is a practical workshop designed to enhance participants' video editing skills by introducing industry-standard tools, creative techniques, and storytelling principles for producing engaging digital content.",
+    image: '/assets/projects/frameLab.png',
+    status: 'Completed',
+    category: 'Media & Editing',
+    year: '2026',
+    collaboration: 'UCSC Media Unit',
+    volunteers: 45,
+    photos: 34,
+    likes: 182
+  }
+];
 
 
 export const CLUB_DIRECTORS = [
-{
-  name: 'Rtr. Dasuni De Silva',
-  role: 'Director of Club Service',
-  bio: 'A people-first organiser who believes the best club culture is built in the small, thoughtful moments.',
-  image: '/assets/leadership/directors/clubservicesdirector1.jpeg'
-},
-{
-  name: 'Rtr. Nuha Fawzer',
-  role: 'Director of Club Service',
-  bio: 'Cultivating an inviting, family-like culture across every club event.',
-  image: '/assets/leadership/directors/clubservicesdirector2.jpeg'
-}];
+  {
+    name: 'Rtr. Dasuni De Silva',
+    role: 'Director of Club Service',
+    bio: 'A people-first organiser who believes the best club culture is built in the small, thoughtful moments.',
+    image: '/assets/leadership/directors/clubservicesdirector1.jpeg'
+  },
+  {
+    name: 'Rtr. Nuha Fawzer',
+    role: 'Director of Club Service',
+    bio: 'Cultivating an inviting, family-like culture across every club event.',
+    image: '/assets/leadership/directors/clubservicesdirector2.jpeg'
+  }];
 
 
 export const CLUB_MILESTONES = [
-{ date: 'Aug 2025', title: 'The first welcome circle', text: '92 new and returning members met through a guided club-story experience.' },
-{ date: 'Oct 2025', title: 'Fellowship in motion', text: 'The first inter-batch sports night brought six teams and one unforgettable final together.' },
-{ date: 'Dec 2025', title: 'Rhythm of Us', text: 'A sold-out year-end celebration became the most photographed club event of the term.' },
-{ date: 'Mar 2026', title: 'Member Mosaic', text: 'A new member-led programme gave every committee a place to share its story.' }];
+  { date: 'Aug 2025', title: 'The first welcome circle', text: '92 new and returning members met through a guided club-story experience.' },
+  { date: 'Oct 2025', title: 'Fellowship in motion', text: 'The first inter-batch sports night brought six teams and one unforgettable final together.' },
+  { date: 'May 2026', title: 'Achieve Beyond 3.0', text: 'A signature career accelerator equipping undergraduates with practical corporate readiness.' },
+  { date: 'Jul 2026', title: 'FrameLab Workshop', text: 'An immersive digital video storytelling and content production workshop.' }
+];

@@ -34,7 +34,7 @@ export function ProjectsPage() {
             <p className="mt-6 max-w-xl text-base leading-8 text-white/65 md:text-lg">Discover the initiatives, people and moments that turn intention into visible change.</p>
           </Reveal>
           <Reveal delay={0.18} className="mt-14 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-4">
-            {[{ label: 'Total projects', value: '128', icon: FolderHeartIcon }, { label: 'Ongoing', value: '14', icon: SparklesIcon }, { label: 'Collaborations', value: '36', icon: HandshakeIcon }, { label: 'Volunteer hours', value: '15.4k', icon: UsersRoundIcon }].map(({ label, value, icon: Icon }) => <div key={label} className="bg-ink/50 p-5 backdrop-blur-sm"><Icon className="h-4 w-4 text-gold" /><p className="mt-5 font-display text-3xl font-bold text-white">{value}</p><p className="mt-1 text-xs font-medium text-white/50">{label}</p></div>)}
+            {[{ label: 'Total projects', value: '40', icon: FolderHeartIcon }, { label: 'Ongoing', value: '34', icon: SparklesIcon }, { label: 'Collaborations', value: '10', icon: HandshakeIcon }, { label: 'Volunteer hours', value: '450+', icon: UsersRoundIcon }].map(({ label, value, icon: Icon }) => <div key={label} className="bg-ink/50 p-5 backdrop-blur-sm"><Icon className="h-4 w-4 text-gold" /><p className="mt-5 font-display text-3xl font-bold text-white">{value}</p><p className="mt-1 text-xs font-medium text-white/50">{label}</p></div>)}
           </Reveal>
         </div>
       </section>

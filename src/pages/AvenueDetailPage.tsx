@@ -154,10 +154,10 @@ export function AvenueDetailPage() {
               <div className="relative z-10 mt-12 grid grid-cols-2 gap-6 border-t border-white/15 pt-8 sm:grid-cols-4">
                 <div>
                   <p className="font-cormorant text-3xl font-light text-[#C5A047] sm:text-4xl">
-                    {avenue.completedProjects}+
+                    {avenue.completedProjects}
                   </p>
                   <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-white/60">
-                    Projects Done
+                    Term Initiatives
                   </p>
                 </div>
                 <div>
@@ -170,7 +170,7 @@ export function AvenueDetailPage() {
                 </div>
                 <div>
                   <p className="font-cormorant text-3xl font-light text-[#C5A047] sm:text-4xl">
-                    {avenue.volunteers || 140}+
+                    {avenue.volunteers || 30}+
                   </p>
                   <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-white/60">
                     Volunteers
@@ -178,7 +178,7 @@ export function AvenueDetailPage() {
                 </div>
                 <div>
                   <p className="font-cormorant text-3xl font-light text-white sm:text-4xl">
-                    {avenue.hours || 850}+
+                    {avenue.hours || 110}+
                   </p>
                   <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-white/60">
                     Service Hours
@@ -441,22 +441,20 @@ export function AvenueDetailPage() {
                   <Link
                     key={item.slug}
                     to={`/avenues/${item.slug}`}
-                    className={`group relative overflow-hidden rounded-2xl border p-5 transition-all duration-300 ${
-                      isCurrent
-                        ? 'border-[#C5A047] bg-white shadow-md ring-2 ring-[#C5A047]/30'
-                        : 'border-black/10 bg-white/50 hover:-translate-y-1 hover:border-[#C5A047]/50 hover:bg-white hover:shadow-lg'
-                    }`}
+                    className={`group relative overflow-hidden rounded-2xl border p-5 transition-all duration-300 ${isCurrent
+                      ? 'border-[#C5A047] bg-white shadow-md ring-2 ring-[#C5A047]/30'
+                      : 'border-black/10 bg-white/50 hover:-translate-y-1 hover:border-[#C5A047]/50 hover:bg-white hover:shadow-lg'
+                      }`}
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-mono text-xs font-bold text-[#C5A047]">
                         {item.number}
                       </span>
                       <span
-                        className={`flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${
-                          isCurrent
-                            ? 'bg-[#C5A047] text-black'
-                            : 'bg-black/5 text-[#0A0606] group-hover:bg-[#C5A047] group-hover:text-black'
-                        }`}
+                        className={`flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${isCurrent
+                          ? 'bg-[#C5A047] text-black'
+                          : 'bg-black/5 text-[#0A0606] group-hover:bg-[#C5A047] group-hover:text-black'
+                          }`}
                       >
                         <ItemIcon className="h-4 w-4" />
                       </span>

@@ -108,7 +108,7 @@ export const GALLERY_STATS = [
 
 export const GALLERY_TIMELINE = [
   { year: '2026', items: ['Installation Ceremony', 'Beach Cleanup', 'Coding Workshop'] },
-  { year: '2025', items: ['Life Drops', 'Books & Beyond', 'Leadership Summit'] },
+  { year: '2025', items: ['Life Drops', 'Achieve Beyond', 'Leadership Summit'] },
   { year: '2024', items: ['District Conference', 'Fellowship Retreat', 'Campus Carnival'] }
 ];
 

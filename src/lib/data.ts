@@ -31,11 +31,11 @@ export interface Stat {
 }
 
 export const STATS: Stat[] = [
-  { label: 'Projects Completed', value: 117, suffix: '+' },
-  { label: 'Active Members', value: 58, minDigits: 3 },
-  { label: 'Volunteer Hours', value: 1005 },
+  { label: 'Projects Completed', value: 40, suffix: '+' },
+  { label: 'Active Members', value: 38 },
+  { label: 'Volunteer Hours', value: 450, suffix: '+' },
   { label: 'Funds Raised', value: 42, prefix: 'LKR ', suffix: 'M' },
-  { label: 'Lives Impacted', value: 4000, minDigits: 5 }];
+  { label: 'Lives Impacted', value: 1250 }];
 
 
 export interface Project {

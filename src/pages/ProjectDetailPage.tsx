@@ -1,5 +1,4 @@
 
-import React from 'react';
 import {
   ArrowLeft as ArrowLeftIcon,
   CalendarDays as CalendarDaysIcon,
@@ -18,10 +17,12 @@ export function ProjectDetailPage() {
 
   if (!project) return <Navigate to="/projects" replace />;
 
+  const otherProjects = PROJECT_CATALOG.filter((item) => item.id !== project.id);
   const gallery = [
-  project.image,
-  PROJECT_CATALOG.find((item) => item.id !== project.id)?.image ?? project.image,
-  PROJECT_CATALOG.find((item) => item.id !== project.id && item.image !== project.image)?.image ?? project.image];
+    project.image,
+    otherProjects[0]?.image ?? project.image,
+    otherProjects[1]?.image ?? otherProjects[0]?.image ?? project.image,
+  ];
 
 
   return (
