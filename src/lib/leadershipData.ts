@@ -6,8 +6,9 @@ import {
   Lightbulb as LightbulbIcon,
   Scale as ScaleIcon,
   UsersRound as UsersRoundIcon,
-  type LucideIcon } from
-'lucide-react';
+  type LucideIcon
+} from
+  'lucide-react';
 
 export interface LeadershipMember {
   name: string;
@@ -121,7 +122,7 @@ export const EXECUTIVE_COMMITTEE: LeadershipMember[] = [
 export const DIRECTORS: LeadershipMember[] = [
   {
     name: 'Rtr. Dasuni De Silva',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Club Service',
     quote: 'Every member deserves a place to truly belong.',
     bio: 'Building fellowship through experiences that stay with people forever.',
@@ -130,7 +131,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Nuha Fawzer',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Club Service',
     quote: 'Fellowship is the foundation that holds all our service together.',
     bio: 'Cultivating an inviting, family-like culture across every club event.',
@@ -139,7 +140,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Oshani Premachandra',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Community Service',
     quote: 'Impact starts with genuine compassion close to home.',
     bio: 'Guiding grassroots action with deep empathy and sustainable solutions.',
@@ -148,7 +149,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Nadeeka Kaduwela',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Community Service',
     quote: 'Hands that serve touch lives that inspire our society.',
     bio: 'Mobilizing volunteer power to uplift underprivileged communities across Sri Lanka.',
@@ -157,7 +158,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Sashik Thivanka',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Professional Development',
     quote: 'Leadership is discovered and refined by doing.',
     bio: 'Opening doors to corporate mentors, essential skills, and brave new beginnings.',
@@ -166,7 +167,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Yasuru Sandeepa',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Professional Development',
     quote: 'Potential needs a platform to grow into excellence.',
     bio: 'Empowering undergraduates with industry readiness and professional networking.',
@@ -175,7 +176,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Ashini Dasanayaka',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Public Relations',
     quote: 'We are the stories we share and the hope we kindle.',
     bio: 'Crafting captivating public narratives that elevate the club’s voice and prestige.',
@@ -184,7 +185,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Isum Hansana',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Public Relations',
     quote: 'Stories move hearts and inspire communities to care.',
     bio: 'Amplifying public resonance and digital branding across diverse platforms.',
@@ -193,7 +194,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Hansika Edirisinghe',
-    role: 'Director',
+    role: 'Avenue Director',
     avenue: 'International Service',
     quote: 'Friendship and meaningful service have no borders.',
     bio: 'Fostering global partnerships and cross-cultural exchanges across the world.',
@@ -202,7 +203,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Isuru Udayanga',
-    role: 'Director',
+    role: 'Avenue Director',
     avenue: 'Digital Services',
     quote: 'Great technology and design make human impact easier to feel.',
     bio: 'Building modern web architectures and digital tools for the club ecosystem.',
@@ -211,7 +212,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Oshadha Dhananjaya',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Sports & Recreation',
     quote: 'Joy and sportsmanship build the strongest team bonds.',
     bio: 'Sparking energy, athletic spirit, and mental wellness through active events.',
@@ -220,7 +221,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Siyumi Vihansha',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Sports & Recreation',
     quote: 'Passion on the field translates to resilience everywhere in life.',
     bio: 'Encouraging healthy living, tournament excitement, and team bonding.',
@@ -229,7 +230,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Chanuki Perera',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Finance',
     quote: 'Transparency and integrity create enduring confidence.',
     bio: 'Ensuring financial accuracy, strategic fundraising, and budget stability.',
@@ -238,7 +239,7 @@ export const DIRECTORS: LeadershipMember[] = [
   },
   {
     name: 'Rtr. Dulki Savindya',
-    role: 'Director',
+    role: 'Avenue Co-Director',
     avenue: 'Finance',
     quote: 'Thoughtful stewardship turns ambitious plans into reality.',
     bio: 'Managing financial resources with precision, foresight, and accountability.',
@@ -248,17 +249,17 @@ export const DIRECTORS: LeadershipMember[] = [
 ];
 
 
-export const LEADERSHIP_VALUES: {title: string;text: string;icon: LucideIcon;}[] = [
-{ title: 'Service Above Self', text: 'We lead with generosity, not ego.', icon: HeartHandshakeIcon },
-{ title: 'Leadership', text: 'We grow through responsibility and action.', icon: CompassIcon },
-{ title: 'Fellowship', text: 'We turn individual energy into shared strength.', icon: UsersRoundIcon },
-{ title: 'Integrity', text: 'We make choices that earn lasting trust.', icon: ScaleIcon },
-{ title: 'Innovation', text: 'We stay curious about what could work better.', icon: LightbulbIcon },
-{ title: 'Community Impact', text: 'We measure success by the good that remains.', icon: BriefcaseBusinessIcon }];
+export const LEADERSHIP_VALUES: { title: string; text: string; icon: LucideIcon; }[] = [
+  { title: 'Service Above Self', text: 'We lead with generosity, not ego.', icon: HeartHandshakeIcon },
+  { title: 'Leadership', text: 'We grow through responsibility and action.', icon: CompassIcon },
+  { title: 'Fellowship', text: 'We turn individual energy into shared strength.', icon: UsersRoundIcon },
+  { title: 'Integrity', text: 'We make choices that earn lasting trust.', icon: ScaleIcon },
+  { title: 'Innovation', text: 'We stay curious about what could work better.', icon: LightbulbIcon },
+  { title: 'Community Impact', text: 'We measure success by the good that remains.', icon: BriefcaseBusinessIcon }];
 
 
 export const LEADERSHIP_MILESTONES = [
-{ date: 'Aug 2025', title: 'Installation Ceremony', text: 'A new board takes the pledge to lead the 2025/26 term with purpose.' },
-{ date: 'Sep 2025', title: 'Leadership Lab', text: 'Executive committee and directors align around club culture, goals and service.' },
-{ date: 'Dec 2025', title: 'First 100 days', text: 'Four signature initiatives prove how far coordinated care can travel.' },
-{ date: 'May 2026', title: 'Annual Showcase', text: 'The team celebrates the stories, partnerships and lives behind a year of impact.' }];
+  { date: 'Aug 2025', title: 'Installation Ceremony', text: 'A new board takes the pledge to lead the 2025/26 term with purpose.' },
+  { date: 'Sep 2025', title: 'Leadership Lab', text: 'Executive committee and directors align around club culture, goals and service.' },
+  { date: 'Dec 2025', title: 'First 100 days', text: 'Four signature initiatives prove how far coordinated care can travel.' },
+  { date: 'May 2026', title: 'Annual Showcase', text: 'The team celebrates the stories, partnerships and lives behind a year of impact.' }];
