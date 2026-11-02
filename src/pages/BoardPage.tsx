@@ -89,7 +89,7 @@ export function BoardPage() {
         <div className="mx-auto max-w-7xl">
           <Reveal className="mb-16 max-w-2xl">
             <p className="font-mono text-xs font-bold uppercase tracking-[.2em] text-navy-500 dark:text-gold">Executive committee</p>
-            <h2 className="mt-4 font-cormorant text-4xl font-light uppercase tracking-[.06em] md:text-6xl">A board built for brave ideas.</h2>
+            <h2 className="mt-4 font-cormorant text-4xl font-light uppercase tracking-[.06em] md:text-6xl">Team build for brave ideas.</h2>
             <p className="mt-5 leading-8 text-ink/60 dark:text-white/60">Twelve distinct perspectives, aligned around one belief: young people can build the kind of change they want to see.</p>
           </Reveal>
           <div className="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
