@@ -38,12 +38,12 @@ export const EXECUTIVE_COMMITTEE: LeadershipMember[] = [
     accent: 'gold'
   },
   {
-    name: 'Rtr. Ganapathi Sadurshan',
-    role: 'Vice President',
-    quote: 'Strength lies in unity, shared vision, and perseverance.',
-    bio: 'Empowering avenues and fostering resilience across every signature project.',
-    image: '/assets/leadership/exco/vicepresident2.png',
-    accent: 'amber'
+    name: 'Rtr. Murshid Akram',
+    role: 'Immediate Past President',
+    quote: 'Legacy is what we make possible together.',
+    bio: 'Offering wisdom, continuity, and an enduring belief in youth empowerment.',
+    image: '/assets/leadership/exco/IPP.png',
+    accent: 'navy'
   },
   {
     name: 'Rtr. Kumodi Rajapura',
@@ -62,12 +62,12 @@ export const EXECUTIVE_COMMITTEE: LeadershipMember[] = [
     accent: 'amber'
   },
   {
-    name: 'Rtr. Murshid Akram',
-    role: 'Immediate Past President',
-    quote: 'Legacy is what we make possible together.',
-    bio: 'Offering wisdom, continuity, and an enduring belief in youth empowerment.',
-    image: '/assets/leadership/exco/IPP.png',
-    accent: 'navy'
+    name: 'Rtr. Ganapathi Sadurshan',
+    role: 'Vice President',
+    quote: 'Strength lies in unity, shared vision, and perseverance.',
+    bio: 'Empowering avenues and fostering resilience across every signature project.',
+    image: '/assets/leadership/exco/vicepresident2.png',
+    accent: 'amber'
   },
   {
     name: 'Rtr. Sandini Jayawardhana',
