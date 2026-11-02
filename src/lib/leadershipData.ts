@@ -30,14 +30,6 @@ export const EXECUTIVE_COMMITTEE: LeadershipMember[] = [
     accent: 'navy'
   },
   {
-    name: 'Rtr. Roshanya Philip',
-    role: 'Vice President',
-    quote: 'Great teams turn care into collective action.',
-    bio: 'Bringing structure, optimism, and a steady hand to every club ambition.',
-    image: '/assets/leadership/exco/vicepresident1.png',
-    accent: 'gold'
-  },
-  {
     name: 'Rtr. Murshid Akram',
     role: 'Immediate Past President',
     quote: 'Legacy is what we make possible together.',
@@ -60,6 +52,14 @@ export const EXECUTIVE_COMMITTEE: LeadershipMember[] = [
     bio: 'A thoughtful steward making every opportunity and resource count for the club.',
     image: '/assets/leadership/exco/treasurer.png',
     accent: 'amber'
+  },
+  {
+    name: 'Rtr. Roshanya Philip',
+    role: 'Vice President',
+    quote: 'Great teams turn care into collective action.',
+    bio: 'Bringing structure, optimism, and a steady hand to every club ambition.',
+    image: '/assets/leadership/exco/vicepresident1.png',
+    accent: 'gold'
   },
   {
     name: 'Rtr. Ganapathi Sadurshan',
